@@ -1,0 +1,30 @@
+import React from "react";
+
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+
+const HomeScreen = ({ navigation }) => {
+	return (
+		<View
+			style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+			<Text>Home Screen</Text>
+			<TouchableOpacity onPress={() => navigation.navigate("Image")}>
+				<Text style={styles.link}>Images</Text>
+			</TouchableOpacity>
+
+			{/* <Image
+                style={{height: 100, width: 150, resizeMode: 'contain'}} 
+                source={{ uri: 'data:image/jpeg;base64,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' }} 
+			/> */}
+		</View>
+	);
+};
+
+const styles = StyleSheet.create({
+	link: {
+		color: "blue",
+		textDecorationLine: "underline",
+		fontSize: 20,
+	},
+});
+
+export default HomeScreen;
