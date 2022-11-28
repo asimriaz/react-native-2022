@@ -20,7 +20,7 @@ const getUserDetails = createAsyncThunk(
 	async (args) => {
 		//console.log(args);
 		const response = await AuthAPI.get(`/list`);
-		console.log(response.data)
+		//console.log(response.data)
 		return response.data;
 	}
 );
@@ -68,6 +68,7 @@ const userSlice = createSlice({
 		builder.addCase(getUserAuthentication.rejected, (state, action) => {});
 		builder.addCase(getUserDetails.fulfilled, (state, action) => {
 			state.list = action.payload;
+			//console.log(JSON.stringify(state, null, ' '))
 		});
 	},
 });
